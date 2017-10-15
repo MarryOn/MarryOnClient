@@ -1,0 +1,46 @@
+@import "../../../scss/variables";
+
+.timeline {
+	position: relative;
+	&:before {
+		content: " ";
+		width: 2px;
+		background: $white;
+		position: absolute;
+		left: 50%;
+		height: 100%;
+	}
+
+	.timeline-card {
+		position: relative;
+		&:before {
+			position: absolute;
+			top: 15px;
+			content: " ";
+			width: 0;
+			height: 0;
+			border-top: 15px solid transparent;
+			border-bottom: 15px solid transparent;
+		}
+	}
+
+	.col-left {
+		.timeline-card {
+			margin-right: 15px;
+			&:before {
+				right: -20px;
+				border-left: 15px solid $bsDarkerGray;
+			}
+		}
+	}
+	.col-right {
+		padding-top: 60px;
+		.timeline-card {
+			margin-left: 15px;
+			&:before {
+				left: -20px;
+				border-right: 15px solid $bsDarkerGray;
+			}
+		}
+	}
+}

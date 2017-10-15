@@ -1,0 +1,55 @@
+<div class="comments-wrapper-new-comment mb-5">
+	<form class="form-horizontal" #newCommentForm="ngForm" (ngSubmit)="onSubmit(newCommentForm)">
+		<div class="row form-group">
+			<label class="col-sm-3">Name</label>
+			<div class="col-sm-9">
+				<input [(ngModel)]="author"
+				       placeholder="Name"
+				       name="author"
+				       class="form-control"
+				       required
+				/>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="col-sm-3">Nachricht</label>
+			<div class="col-sm-9">
+				<textarea [(ngModel)]="content"
+				          placeholder="Nachricht"
+				          name="content"
+				          class="form-control"
+				          required>
+				</textarea>
+			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col">
+				<button class="btn btn-primary float-right">
+					Absenden
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="comments-wrapper">
+	<div class="comments-wrapper-comments-inner">
+		<app-filter [data]="comments" (onFiltering)="onFiltering($event)"></app-filter>
+
+		<div class="row mb-3" *ngFor="let comment of fileredComments | orderBy: 'createdAt': true" >
+			<div class="col-3">
+				<span class="comments-comment-author">{{comment.author}}</span>
+				<span class="comments-comment-time">
+					{{comment.createdAt | date: 'dd.MM.y HH:mm'}}
+				</span>
+			</div>
+			<div class="col-9">
+				<div class="comments-comment">
+					<div class="well">{{comment.content}}</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

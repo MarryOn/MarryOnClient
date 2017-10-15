@@ -1,0 +1,48 @@
+.gallery-card {
+	background: $bsGray;
+	border: 5px solid $bsDarkerGray;
+	margin-bottom: 30px;
+	.card-body {
+		background: $bsDarkGray;
+		padding: 0;
+		.card-title {
+			background: $bsGray;
+			margin: 0;
+			padding: 15px;
+			border-bottom: 5px solid $bsDarkerGray;
+		}
+		.img-link {
+			width: 33.333333333333333333%;
+		}
+	}
+}
+
+@media screen and (max-width: $screen-xs-max) {
+	.gallery-card {
+		.card-body {
+			.img-link {
+				width: 50%;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+	.gallery-card {
+		.card-body {
+			.img-link {
+				width: 33.333333333333333333%;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+	.gallery-card {
+		.card-body {
+			.img-link {
+				width: 50%;
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+@import "../../../scss/variables";
+
+header {
+	height: 100%;
+}
+
+#headline {
+	font-family: keep_calm_medregular, sans-serif;
+	font-size: 250%;
+	text-align: center;
+	line-height: 110px;
+	border: 10px solid white;
+	padding: 50px 0 70px;
+	max-height: 770px;
+	max-width: 770px;
+	background: $blue;
+	width: 90%;
+	margin: 0 auto;
+	box-shadow: 5px 5px 15px #333;
+
+	.crown {
+		width: 150px;
+		margin-bottom: 15px;
+	}
+
+	.small {
+		font-size: 30%;
+		line-height: 200%;
+		color: $mainFontColor;
+	}
+}
+
+@media (max-width: 500px) {
+	#headline {
+		font-size: 150%;
+		line-height: 70px;
+		padding: 50px 0 50px;
+		margin: 0 auto 50px;
+	}
+}

@@ -1,0 +1,27 @@
+@import "../../../scss/variables";
+
+.more-link {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	font-size: 1.3vw;
+	padding: 15px;
+}
+
+@media screen and (max-width: $screen-xs-max) {
+	.more-link {
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+	.more-link {
+		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+	.more-link {
+		font-size: 18px;
+	}
+}

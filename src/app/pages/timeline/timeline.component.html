@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<h2>Was bisher geschah ...</h2>
+
+	<ng-template #cards let-dataSource="dataSource">
+		<div class="card gallery-card timeline-card" *ngFor="let dataSourceItem of dataSource">
+			<div class="card-body">
+				<h4 class="card-title">{{dataSourceItem.year}}</h4>
+				<app-gallery galleryId="timeline"
+				             subGalleryId="{{dataSourceItem.year}}"
+				             [centerThumbnails]="false">
+				</app-gallery>
+			</div>
+		</div>
+	</ng-template>
+
+	<div class="timeline timline-1-col" *ngIf="timelineLayout === '1-col'">
+		<ng-container *ngTemplateOutlet="cards; context: context1col"></ng-container>
+	</div>
+
+	<div class="timeline timeline-2-col row" *ngIf="timelineLayout === '2-col'">
+		<div class="col col-left">
+			<ng-container *ngTemplateOutlet="cards; context: context2colLeft"></ng-container>
+		</div>
+		<div class="col col-right">
+			<ng-container *ngTemplateOutlet="cards; context: context2colRight"></ng-container>
+		</div>
+	</div>
+
+</div>

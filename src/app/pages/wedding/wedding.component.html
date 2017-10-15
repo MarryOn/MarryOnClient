@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<h2>Die Hochzeit (10.06.2017)</h2>
+
+	<div class="row wedding">
+		<div class="col-lg-6" *ngFor="let dataSourceItem of dataSource">
+			<div class="card gallery-card timeline-card">
+				<div class="card-body">
+					<h4 class="card-title">{{dataSourceItem.title}}</h4>
+					<app-gallery galleryId="wedding"
+					             subGalleryId="{{dataSourceItem.subGalleryId}}"
+					             [centerThumbnails]="false">
+					</app-gallery>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

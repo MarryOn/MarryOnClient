@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "variables";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~angular2-lightbox/lightbox.css";
+
+@import "general";
+
+@import "includes/lightbox";
+@import "includes/gallery";
+

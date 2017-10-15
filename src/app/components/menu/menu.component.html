@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+	<a class="navbar-brand float-left" href="#">
+		<header class="headline-wrapper">
+			<div id="marryOnLogo">
+				<img class="crown" src="../assets/images/wedding-rings.svg"/>
+				<div>KEEP</div>
+				<div>CALM</div>
+				<div class="small">AND</div>
+				<div>MARRY</div>
+				<div>ON</div>
+			</div>
+		</header>
+	</a>
+
+	<button class="navbar-toggler float-right"
+	        type="button"
+	        data-toggle="collapse"
+	        data-target="#navbarSupportedContent"
+	        aria-controls="navbarSupportedContent"
+	        aria-expanded="false"
+	        aria-label="Toggle navigation"
+	        (click)="isCollapsed = !isCollapsed">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div [collapse]="isCollapsed" class="navbar-collapse d-lg-flex justify-content-center">
+		<ul class="navbar-nav text-center">
+			<li class="nav-item ml-2 mr-2" routerLinkActive="active">
+				<a class="nav-link" routerLink="/wedding" routerLinkActive="active">Die Hochzeit</a>
+			</li>
+			<li class="nav-item ml-2 mr-3" routerLinkActive="active">
+				<a class="nav-link" routerLink="/timeline" routerLinkActive="active">Was bisher geschah</a>
+			</li>
+			<li class="nav-item ml-2 mr-3" routerLinkActive="active">
+				<a class="nav-link" routerLink="/guestbook" routerLinkActive="active">Gästebuch</a>
+			</li>
+		</ul>
+	</div>
+</nav>

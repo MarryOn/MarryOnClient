@@ -1,0 +1,11 @@
+<h2>Gallery</h2>
+<button type="button" class="btn btn-secondary position-fixed pointer" (click)="back()">
+	Zurück
+</button>
+
+<app-gallery [galleryId]="galleryId"
+             [subGalleryId]="subGalleryId"
+             [numberOfPreviewImages]="-1">
+</app-gallery>
+
+<div class="mb-5"></div>

@@ -1,0 +1,17 @@
+<div class="gallery flex-wrap d-flex" [ngClass]="{'justify-content-center': centerThumbnails}">
+	<div class="img-link pointer"
+	     *ngFor="let image of getPreviewImages(); let i=index"
+	     (click)="openLightbox(i)">
+		<img [defaultImage]="defaultImage" [lazyLoad]="image.thumb" [offset]="offset" class="img-fluid w-100">
+	</div>
+	<div class="img-link pointer"
+	     *ngIf="numberOfPreviewImages > 0 && images.length - numberOfPreviewImages > 1">
+		<a class="more-link d-flex justify-content-center" routerLink="/gallery/{{galleryId}}/{{subGalleryId}}">
+			<span class="align-self-center">
+				<i class="fa fa-chevron-right" aria-hidden="true"></i>
+				{{images.length - numberOfPreviewImages}}
+				weitere Bilder
+			</span>
+		</a>
+	</div>
+</div>

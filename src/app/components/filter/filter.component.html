@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center mb-5">
+	<form class="form-inline">
+		<label for="searchSword" class="mr-5">Suche</label>
+		<div class="input-group">
+			<input id="searchSword"
+			       name="searchSword"
+			       [(ngModel)]="searchText"
+			       (ngModelChange)="filter()"
+			       class="form-control"
+			/>
+			<div class="input-group-btn">
+				<button class="btn btn-secondary border-0" type="button" (click)="reset()">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
