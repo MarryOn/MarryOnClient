@@ -11,12 +11,12 @@ import {environment} from '../../../environments/environment';
 export class CommentsComponent implements OnInit {
 
 	private dataSourceUrl = environment.apiBaseUrl + '/api/comments';
-	private addCommentUrl = environment.apiBaseUrl + '/api/comments/add';
+	private addCommentUrl = environment.apiBaseUrl + '/api/comment/add';
 
 	@Input() target: string;
 
 	public comments: AbstractComment[] = [];
-	public fileredComments: AbstractComment[] = [];
+	public filteredComments: AbstractComment[] = [];
 	public author: string = '';
 	public content: string = '';
 
@@ -48,7 +48,7 @@ export class CommentsComponent implements OnInit {
 	}
 
 	onFiltering(data) {
-		this.fileredComments = data;
+		this.filteredComments = data;
 	}
 
 	getDataSourceUrl(): string {

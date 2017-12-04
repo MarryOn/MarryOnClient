@@ -1,8 +1,16 @@
-<div class="gallery flex-wrap d-flex" [ngClass]="{'justify-content-center': centerThumbnails}">
+<div class="text-center" *ngIf="isLoadingImageReady === false">
+	<img [lazyLoad]="defaultImage" [offset]="offset" style="visibility: hidden" (onLoad)="loadingImageReadyCallback()" />
+</div>
+
+<div class="gallery flex-wrap d-flex"
+     [ngClass]="{'justify-content-center': centerThumbnails}"
+     *ngIf="isLoadingImageReady"
+>
 	<div class="img-link pointer"
 	     *ngFor="let image of getPreviewImages(); let i=index"
-	     (click)="openLightbox(i)">
-		<img [defaultImage]="defaultImage" [lazyLoad]="image.thumb" [offset]="offset" class="img-fluid w-100">
+	     (click)="openLightbox(i)"
+	>
+		<img [defaultImage]="defaultImage" [lazyLoad]="image.thumb" [offset]="offset" class="img-fluid w-100" />
 	</div>
 	<div class="img-link pointer"
 	     *ngIf="numberOfPreviewImages > 0 && images.length - numberOfPreviewImages > 1">

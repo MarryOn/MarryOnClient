@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from '../../../environments/environment';
 import {Lightbox} from "angular2-lightbox";
 import 'rxjs/add/operator/switchMap';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
 	selector: 'app-gallery',
@@ -19,6 +20,10 @@ export class GalleryComponent implements OnInit {
 	public images: { caption: string, src: string, thumb: string }[] = [];
 	public offset = 200;
 	public defaultImage = '/assets/images/loader_300.gif';
+	public isLoadingImageReady = false;
+	public previewImages = [];
+
+	private dataSourceUrl = environment.apiBaseUrl + '/api/gallery/show';
 
 	constructor(private http: HttpClient,
 	            public lightbox: Lightbox) {
@@ -28,16 +33,12 @@ export class GalleryComponent implements OnInit {
 		this.initGalleryImages();
 	}
 
-	private getDataSourceUrl() {
-		let dataSourceUrl = environment.apiBaseUrl + '/api/galleries/' + this.galleryId;
-		if (this.subGalleryId) {
-			dataSourceUrl += '/' + this.subGalleryId;
-		}
-		return dataSourceUrl;
-	}
-
 	private initGalleryImages() {
-		this.http.get<WeddingGalleryData>(this.getDataSourceUrl()).subscribe(data => {
+		let params = new HttpParams();
+		params = params.append('galleryId', this.galleryId);
+		params = params.append('subGalleryId', this.subGalleryId);
+
+		this.http.get<WeddingGalleryData>(this.dataSourceUrl, {params: params}).subscribe(data => {
 			for (let key in data) {
 				if (data.hasOwnProperty(key)) {
 					this.images.push({
@@ -45,6 +46,7 @@ export class GalleryComponent implements OnInit {
 						src: data[key].url_large,
 						thumb: data[key].url_thumbnail
 					});
+					this.previewImages = this.getPreviewImages();
 				}
 			}
 		});
@@ -59,5 +61,9 @@ export class GalleryComponent implements OnInit {
 
 	openLightbox(index: number) {
 		this.lightbox.open(this.images, index);
+	}
+
+	public loadingImageReadyCallback(event) {
+		this.isLoadingImageReady = true;
 	}
 }

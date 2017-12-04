@@ -25,6 +25,7 @@ import {MenuComponent} from './components/menu/menu.component';
 import {GalleryViewerComponent} from './pages/gallery-viewer/gallery-viewer.component';
 import {ClickOutsideDirective} from "./directives/clicked-outside.directive";
 import {breakpointsProvider} from 'angular-breakpoints';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -44,6 +45,7 @@ import {breakpointsProvider} from 'angular-breakpoints';
 	],
 	imports: [
 		BrowserModule,
+		BrowserAnimationsModule,
 		FormsModule,
 		AppRoutingModule,
 		HttpClientModule,

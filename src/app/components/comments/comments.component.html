@@ -36,7 +36,7 @@
 	<div class="comments-wrapper-comments-inner">
 		<app-filter [data]="comments" (onFiltering)="onFiltering($event)"></app-filter>
 
-		<div class="row mb-3" *ngFor="let comment of fileredComments | orderBy: 'createdAt': true" >
+		<div class="row mb-3" *ngFor="let comment of filteredComments | orderBy: 'createdAt': true" >
 			<div class="col-3">
 				<span class="comments-comment-author">{{comment.author}}</span>
 				<span class="comments-comment-time">
