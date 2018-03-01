@@ -1,4 +1,4 @@
 export const environment = {
 	production: true,
-	apiBaseUrl: 'http://marry-on.de'
+	apiBaseUrl: 'https://marry-on.de'
 };
